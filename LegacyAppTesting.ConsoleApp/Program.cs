@@ -1,14 +1,24 @@
-﻿namespace LegacyAppTesting.ConsoleApp
+﻿using System;
+using System.Threading.Tasks;
+
+namespace LegacyAppTesting.ConsoleApp
 {
     internal class Program
     {
-        public static void Main(string[] args)
+        public static async Task Main(string[] args)
         {
             //Instantiate bored client.
             var client = new BoredClient();
-            //1. Ask if user is bored.
-            //2. If response is Y, get an activity.
-            //Loop 1 and 2 until response is N. 
+            Console.WriteLine("Bored? Would you like a suggestion for something to do? (Y/N): ");
+            while (Console.ReadLine() == "Y")
+            {
+                var randomActivity = await client.FindSomethingToDo();
+                Console.WriteLine("  How about " + randomActivity.Activity + "?");
+                Console.WriteLine("");
+                Console.WriteLine("Still bored?");
+            }
+                
+            Console.WriteLine("So glad you're not bored any more, enjoy your activity!");
         }
     }
 }

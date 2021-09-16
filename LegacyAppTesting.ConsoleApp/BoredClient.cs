@@ -6,13 +6,13 @@ namespace LegacyAppTesting.ConsoleApp
 {
     public class BoredClient
     {
-        public async Task FindSomethingToDo()
+        public async Task<BoredResponse> FindSomethingToDo()
         {
             //Get activity.
             var client = new HttpClient();
             var result = await client.GetAsync("http://www.boredapi.com/api/activity/");
-            var body = await result.Content.ReadAsStringAsync();
-            //Create result and return.
+            var bodyString = await result.Content.ReadAsStringAsync();
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<BoredResponse>(bodyString);
         }
     }
 }
