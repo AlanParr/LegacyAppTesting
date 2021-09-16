@@ -8,11 +8,11 @@ namespace LegacyAppTesting.ConsoleApp
         public static async Task Main(string[] args)
         {
             //Instantiate bored client.
-            var client = new BoredClient();
+            var service = new BoredomSuggestionService();
             Console.WriteLine("Bored? Would you like a suggestion for something to do? (Y/N): ");
             while (Console.ReadLine() == "Y")
             {
-                var randomActivity = await client.FindSomethingToDo();
+                var randomActivity = await service.FindSomethingToDo();
                 Console.WriteLine("  How about " + randomActivity.Activity + "?");
                 Console.WriteLine("");
                 Console.WriteLine("Still bored?");

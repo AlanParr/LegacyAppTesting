@@ -44,6 +44,7 @@
     </ItemGroup>
     <ItemGroup>
         <Compile Include="BoredClient.cs" />
+        <Compile Include="BoredomSuggestionService.cs" />
         <Compile Include="BoredResponse.cs" />
         <Compile Include="Program.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
