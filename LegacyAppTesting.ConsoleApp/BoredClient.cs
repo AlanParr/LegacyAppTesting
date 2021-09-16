@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 
 namespace LegacyAppTesting.ConsoleApp
 {
-    public class BoredClient
+    public class BoredClient : IBoredClient
     {
         public async Task<BoredResponse> FindSomethingToDo()
         {

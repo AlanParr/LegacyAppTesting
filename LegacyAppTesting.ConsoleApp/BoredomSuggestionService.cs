@@ -4,11 +4,11 @@ namespace LegacyAppTesting.ConsoleApp
 {
     public class BoredomSuggestionService
     {
-        private BoredClient _client;
+        private readonly IBoredClient _client;
 
         public BoredomSuggestionService()
         {
-            _client = new BoredClient();
+            _client = new BoredClientFactory().GetClient();
         }
         public async Task<BoredResponse> FindSomethingToDo()
         {
